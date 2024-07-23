@@ -1,8 +1,8 @@
-import { galleryItems } from './gallery-items';
-import SimpleLightbox from 'simplelightbox';
-import 'simplelightbox/dist/simple-lightbox.min.css';
-import '../css/common.css';
-import '../css/01-gallery.css';
+import { galleryItems } from "./gallery-items";
+import SimpleLightbox from "simplelightbox";
+import "../simplelightbox/dist/simple-lightbox.min.css";
+import "../css/common.css";
+import "../css/01-gallery.css";
 
 const createItemsMarkup = galleryItems
   .map(({ preview, original, description }) => {
@@ -12,19 +12,19 @@ const createItemsMarkup = galleryItems
   </a>
       `;
   })
-  .join('');
+  .join("");
 
-const alleryContainerEl = document.querySelector('.gallery');
-alleryContainerEl.insertAdjacentHTML('beforeend', createItemsMarkup);
-let lightbox = new SimpleLightbox('.gallery a', {
+const alleryContainerEl = document.querySelector(".gallery");
+alleryContainerEl.insertAdjacentHTML("beforeend", createItemsMarkup);
+let lightbox = new SimpleLightbox(".gallery a", {
   scrollZoom: false,
   captionDelay: 250,
-  captionsData: 'alt',
+  captionsData: "alt",
   doubleTapZoom: 1,
 });
-alleryContainerEl.addEventListener('click', event => {
+alleryContainerEl.addEventListener("click", (event) => {
   event.preventDefault();
-  if (!event.target.classList.contains('gallery__image')) {
+  if (!event.target.classList.contains("gallery__image")) {
     return;
   }
 });
